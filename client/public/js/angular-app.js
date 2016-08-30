@@ -5,5 +5,19 @@
  */
 
 
-var angularApp = angular.module('angular-app', [ngRoute]);
+var angularApp = angular.module('angular-app', ['ngRoute']);
 
+angularApp.config(function ($routeProvider) {
+
+    $routeProvider
+        .when('/', {
+            templateUrl: 'public/index.html',
+            controller: 'home-controller'
+        })
+
+});
+
+
+angularApp.controller('home-controller', function ($scope) {
+    console.log('HomeCtrl is here');
+});
