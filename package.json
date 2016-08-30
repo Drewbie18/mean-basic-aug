@@ -1,0 +1,23 @@
+{
+  "name": "mean-basic",
+  "version": "1.0.0",
+  "description": "basic mean stack app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Drewbie18/mean-basic-aug.git"
+  },
+  "author": "Drew Payette",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Drewbie18/mean-basic-aug/issues"
+  },
+  "homepage": "https://github.com/Drewbie18/mean-basic-aug#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "moment": "^2.14.1"
+  }
+}
