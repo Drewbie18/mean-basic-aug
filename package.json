@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/Drewbie18/mean-basic-aug#readme",
   "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
     "express": "^4.14.0",
     "moment": "^2.14.1"
   }
