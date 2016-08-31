@@ -22,18 +22,28 @@ angularApp.controller('home-controller', function ($scope, $http) {
     console.log('HomeCtrl is here');
 
 
-    $scope.sayHi = function(){
+    $scope.sayHi = function () {
         $scope.hello = "Hello MotherFUCKER!";
-
-
-
     }
 
 
-    $scope.getResponse = function(){}
-    $http({
-        method: 'GET',
-        url: '/api/item/socks/13'
-    })
+    $scope.getResponse = function () {
 
+        $http({
+            method: 'GET',
+            url: '/api/item/socks/13'
+        }).then(function successCallback(response) {
+
+            console.log(response);
+
+            $scope.responseId = response.data._id;
+            $scope.responseName = response.data.name;
+            $scope.responseText = response.data.text;
+        }, function errorCallback(response) {
+
+            console.log('There was an error');
+
+        });
+
+    }
 });
