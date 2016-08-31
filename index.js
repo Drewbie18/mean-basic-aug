@@ -19,4 +19,18 @@ app.get('/', function (req, res) {
     res.sendFile(__dirname + '/client/public/index.html');
 });
 
+
+app.get('/api/item/:item_id/:item_name', function(req, res){
+
+    var responseObj = {
+        "_id": req.params.item_id,
+        "name": req.params.item_name,
+        "text": "This is the object that you got back"
+    }
+
+    res.json(responseObj);
+
+});
+
+
 app.listen(port);

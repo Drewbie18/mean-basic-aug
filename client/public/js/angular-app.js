@@ -18,6 +18,22 @@ angularApp.config(function ($routeProvider) {
 });
 
 
-angularApp.controller('home-controller', function ($scope) {
+angularApp.controller('home-controller', function ($scope, $http) {
     console.log('HomeCtrl is here');
+
+
+    $scope.sayHi = function(){
+        $scope.hello = "Hello MotherFUCKER!";
+
+
+
+    }
+
+
+    $scope.getResponse = function(){}
+    $http({
+        method: 'GET',
+        url: '/api/item/socks/13'
+    })
+
 });
