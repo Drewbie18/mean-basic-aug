@@ -10,16 +10,21 @@ var angularApp = angular.module('angular-app', ['ngRoute']);
 angularApp.config(function ($routeProvider) {
 
     $routeProvider
+
         .when('/', {
-            templateUrl: 'public/index.html',
-            controller: 'home-controller'
+            templateUrl: 'public/views/landing.html',
+            controller: 'landing-controller'
+        })
+        .when('/wahlin-1', {
+            templateUrl: 'public/views/wahlin-1.html',
+            controller: 'wahlin-1-controller'
         })
 
 });
 
 
-angularApp.controller('home-controller', function ($scope, $http) {
-    console.log('HomeCtrl is here');
+angularApp.controller('landing-controller', function ($scope, $http) {
+    console.log('landing-controller is here');
 
 
     $scope.sayHi = function () {
@@ -46,4 +51,10 @@ angularApp.controller('home-controller', function ($scope, $http) {
         });
 
     }
+});
+
+
+angularApp.controller('wahlin-1-controller', function ($scope, $http) {
+    console.log('wahlin-1-controller is here');
+
 });
