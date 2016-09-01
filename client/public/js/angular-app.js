@@ -2,6 +2,10 @@
  * Created by Drew on 2016-08-29.
  * This file will contain the basic angular setup
  *
+ *
+ * This is where we define the name of our module that we are adding to the html tag,
+ * we are also injecting any modules that we are dependent on-> ngRoute and all other kinds
+ *
  */
 
 
