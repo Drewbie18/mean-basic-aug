@@ -19,6 +19,10 @@ angularApp.config(function ($routeProvider) {
             templateUrl: 'public/views/wahlin-1.html',
             controller: 'wahlin-1-controller'
         })
+        .when('/wahlin-2', {
+            templateUrl: 'public/views/wahlin-2.html',
+            controller: 'wahlin-2-controller'
+        })
 
 });
 
@@ -56,5 +60,10 @@ angularApp.controller('landing-controller', function ($scope, $http) {
 
 angularApp.controller('wahlin-1-controller', function ($scope, $http) {
     console.log('wahlin-1-controller is here');
+
+});
+
+angularApp.controller('wahlin-2-controller', function ($scope, $http) {
+    console.log('wahlin-2-controller is here');
 
 });
