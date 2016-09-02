@@ -51,6 +51,7 @@ app.get('/api/comments/all', function(req, res){
 
 app.get('/api/comments/none', function(req, res){
 
+    var data = {};
     res.json(data);
 
 });

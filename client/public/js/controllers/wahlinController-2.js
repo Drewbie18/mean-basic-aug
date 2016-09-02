@@ -5,6 +5,13 @@
 
         $scope.title = 'THIS IS THE SECOND PAGE';
 
+
+        
+
+
+
+
+
     }
      //use the inject service to ensure that is there is minification the injected
     //services are not overwritten to s and h as minifiers tend to do.
