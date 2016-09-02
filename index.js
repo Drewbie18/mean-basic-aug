@@ -39,11 +39,21 @@ app.get('/api/item/:item_id/:item_name', function(req, res){
 
 //another simple get to use an http call to get the spoof data
 var data = require('./server/test-data/spoof-comments');
+var generateRandom = require('./server/test-data/randomNumber');
 
 app.get('/api/comments/all', function(req, res){
+
+    console.log(generateRandom(0,10));
+    res.json(data);
+    
+
+});
+
+app.get('/api/comments/none', function(req, res){
 
     res.json(data);
 
 });
+
 
 app.listen(port);

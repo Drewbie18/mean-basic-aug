@@ -8,6 +8,53 @@
 
 <h1>SOME WORDS</h1>
 <button class="btn btn-primary" ng-click="getComments()">GET THE COMMENTS</button>
+<hr>
+
+<button class="btn btn-primary" ng-click="testShow()">GET THE COMMENTS</button>
+
+
+<div class="row" ng-show="noData">
+    <div class="col-lg-3">
+        <div class="alert alert-danger" role="alert">No Data to display</div>
+    </div>
+
+</div>
+
+
+<div class="row">
+    <div class="col-lg-6">
+        <table class="table table-bordered">
+            <thead>
+            <th>ID</th>
+            <th>TEXT</th>
+            <th>AUTHOR</th>
+            <th>TIMESTAMP</th>
+            <th>NUMBER</th>
+            </thead>
+            <tr ng-repeat="text in texts">
+                <td>{{text.textId}}</td>
+                <td>{{text.text}}</td>
+                <td>{{text.author}}</td>
+                <td>{{text.timeStamp}}</td>
+                <td>{{text.number | number}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<h1>From the first factory!</h1>
+<div class="row">
+    <div class="col-lg-3">
+       <ul>
+           <li>{{people[0]}}</li>
+           <li>{{people[1]}}</li>
+       </ul>
+    </div>
+
+</div>
+
+
 
 </body>
 </html>
