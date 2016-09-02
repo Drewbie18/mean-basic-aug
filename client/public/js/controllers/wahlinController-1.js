@@ -12,17 +12,28 @@
 
     //put all conroller logic and services to be used in this function
     //this will then be registered to the module.
-    var wahlinOneConroller = function ($scope, $http, simpleFactory) {
+    var wahlinOneConroller = function ($scope, $http, simpleFactory, getPeopleService, appSettings) {
 
-        
+        //send the appSettings object on the scope equal to the value in appSettings
+        $scope.appSettings = appSettings;
+
+
         //Make use of the simpleFactory that created
         //wrapping in an init function that will run when the page is loaded. 
-        function init(){
+        function init() {
             $scope.people = simpleFactory.getPeople();
         }
+
         init();
-        
-        
+
+        //making use of the getPeopleService
+        function onInit() {
+            $scope.morePeople = getPeopleService.getPeoples();
+        }
+
+        onInit();
+
+
         console.log('wahlin-1-controller is here');
 
         $scope.getComments = function () {
@@ -66,7 +77,7 @@
 
     //use the inject service to ensure that is there is minification the injected
     //services are not overwritten to s and h as minifiers tend to do.
-    wahlinOneConroller.$inject=['$scope', '$http', 'simpleFactory'];
+    wahlinOneConroller.$inject = ['$scope', '$http', 'simpleFactory', 'getPeopleService', 'appSettings'];
 
     //register the controller with the angular module
     angular.module('angular-app').controller('wahlin-1-controller', wahlinOneConroller);

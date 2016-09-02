@@ -12,14 +12,16 @@
     var getPeopleService = function(){
         var people = ['Drew', 'Corry'];
 
-        //use this to great the method on this object
-        this.getPeople = function(){
+        this.getPeoples = function() {
+            console.log('here is the service....');
             return people;
-        };
+        }
+
     };
 
+    
     //register with the module
-    angular.module('angularApp').service('getPeopleService', getPeopleService);
+    angular.module('angular-app').service('getPeopleService', getPeopleService);
 
 
 }());
