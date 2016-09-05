@@ -31,7 +31,7 @@
             <th>TIMESTAMP</th>
             <th>NUMBER</th>
             </thead>
-            <tr ng-repeat="text in texts">
+            <tr ng-repeat="text in texts" ng-class=" numValue(text.number)">
                 <td>{{text.textId}}</td>
                 <td>{{text.text}}</td>
                 <td>{{text.author}}</td>

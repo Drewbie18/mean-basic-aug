@@ -47,6 +47,14 @@
 
                 $scope.texts = response.data;
 
+                $scope.numValue = function(num){
+                    if(num <= 500000000){
+                        return 'danger';
+                    }else{
+                        return 'success';
+                    }
+                }
+
 
             }, function errorCallback(response) {
 
