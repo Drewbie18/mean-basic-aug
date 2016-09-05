@@ -27,6 +27,10 @@ angularApp.config(function ($routeProvider) {
             templateUrl: 'public/views/wahlin-2.html',
             controller: 'wahlin-2-controller'
         })
+        .when('/wahlin-3', {
+            templateUrl: 'public/views/wahlin-3.html',
+            controller: 'wahlin-3-controller'
+        })
 
 });
 
