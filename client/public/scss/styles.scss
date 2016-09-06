@@ -1,6 +1,7 @@
 /*Contains the CSS to have a grid view of the page
 ARGUMENTS:
 --no-cache --update $FileName$:$FileParentDir$/css/$FileNameWithoutExtension$.css
+http://stackoverflow.com/questions/14207109/hiding-elements-in-responsive-layout
 */
 @import "variables";
 @import "mixins";
@@ -34,7 +35,4 @@ ARGUMENTS:
   width: 100%;
   padding: 5px;
   margin:0;
-
-
-
 }

@@ -6,28 +6,18 @@
 </head>
 <body>
 
+<hello-world></hello-world>
+
 <h1>{{title}}</h1>
 
-<div class="row">
-    <div class="col-lg-6" id="animation-div-1">
-        <h3>This Div will be used to try animations</h3>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-6" id="animation-div-2">
-        <h3>This Div will be used to try animations</h3>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-6" id="animation-div-3">
-        <h3>This Div will be used to try animations</h3>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-6" id="animation-div-4">
-        <h3>This Div will be used to try animations</h3>
-    </div>
-</div>
+<shared-scope></shared-scope>
+<br>
+<hr>
+<isolate-scope></isolate-scope>
+<br>
+<hr>
+<!--have to use the data-binding expression not the literal expression-->
+<pass-string name="{{people[1].name}}"></pass-string>
 
 
 </body>

@@ -9,6 +9,15 @@
         $scope.title = 'THIS IS THE THIRD PAGE';
 
 
+        $scope.people = [{
+            "name": 'Drew',
+            "age": 28
+        }, {
+            "name": 'Corry',
+            "age": 28
+        }];
+
+
     }
 
     wahlin3Controller.$inject = ['$scope', '$log'];
