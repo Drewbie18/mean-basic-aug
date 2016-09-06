@@ -9,7 +9,7 @@
  */
 
 
-var angularApp = angular.module('angular-app', ['ngRoute']);
+var angularApp = angular.module('angular-app', ['ngRoute', 'ngAnimate']);
 
 angularApp.config(function ($routeProvider) {
 
@@ -31,6 +31,10 @@ angularApp.config(function ($routeProvider) {
             templateUrl: 'public/views/wahlin-3.html',
             controller: 'wahlin-3-controller'
         })
+        .when('/grid-view', {
+        templateUrl: 'public/views/grid-view.html',
+        controller: 'grid-view-controller'
+    })
 
 });
 

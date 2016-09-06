@@ -1,0 +1,105 @@
+/*
+*Some cool animations from the Dan Wahlin's course
+*
+*/
+
+#animation-div-1 {
+    min-height: 60px;
+    background-color: #9d9d9d;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+#animation-div-2 {
+    min-height: 60px;
+    background-color: #843534;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+#animation-div-3 {
+    min-height: 60px;
+    background-color: #1b6d85;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+#animation-div-4 {
+    min-height: 60px;
+    background-color: #9d9d9d;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+.slide-animation.ng-enter, .slide-animation.ng-leave {
+    -webkit-transition: 0.5s linear all;
+    -moz-transition: 0.5s linear all;
+    -o-transition: 0.5s linear all;
+    transition: 0.5s linear all;
+    position: relative;
+    height: 1000px;
+}
+
+.slide-animation.ng-enter {
+    z-index: 100;
+    left: 100px;
+    opacity: 0;
+}
+
+.slide-animation.ng-enter.ng-enter-active {
+    left: 0;
+    opacity: 1;
+}
+
+.slide-animation.ng-leave {
+    z-index: 101;
+    opacity: 1;
+    left: 0;
+}
+
+.slide-animation.ng-leave.ng-leave-active {
+    left: -100px;
+    opacity: 0;
+}
+/*Used for the NG repeat*/
+.repeat-animation.ng-enter,
+.repeat-animation.ng-leave,
+.repeat-animation.ng-move {
+    -webkit-transition: 0.5s linear all;
+    -moz-transition: 0.5s linear all;
+    -o-transition: 0.5s linear all;
+    transition: 0.5s linear all;
+    position: relative;
+}
+
+.repeat-animation.ng-enter {
+    left: 10px;
+    opacity: 0;
+}
+
+.repeat-animation.ng-enter.ng-enter-active {
+    left: 0;
+    opacity: 1;
+}
+
+.repeat-animation.ng-leave {
+    left: 10px;
+    opacity: 1;
+}
+
+.repeat-animation.ng-leave.ng-leave-active {
+    left: -10px;
+    opacity: 0;
+}
+
+.repeat-animation.ng-move {
+    opacity: 0.5;
+}
+
+.repeat-animation.ng-move.ng-move-active {
+    opacity: 1;
+}
