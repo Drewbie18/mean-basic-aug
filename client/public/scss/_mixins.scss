@@ -1,0 +1,9 @@
+/*DEFINE MIXINS HERE*/
+
+
+@mixin danger {
+  background-color: red;
+  color: white;
+  font-family: arial;
+
+}
