@@ -7,7 +7,8 @@ ARGUMENTS:
 .box {
   background-color: #f0ad4e;
   border: #0f0f0f dashed;
-  height: 100px; }
+  height: 100px;
+  box-sizing: border-box; }
 
 @media only screen and (min-width: 768px) {
   .box {
@@ -17,5 +18,13 @@ ARGUMENTS:
   background-color: red;
   color: white;
   font-family: arial; }
+
+#right-hand {
+  float: left; }
+
+.stack {
+  width: 100%;
+  padding: 5px;
+  margin: 0; }
 
 /*# sourceMappingURL=styles.css.map */
