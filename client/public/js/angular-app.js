@@ -32,9 +32,15 @@ angularApp.config(function ($routeProvider) {
             controller: 'wahlin-3-controller'
         })
         .when('/grid-view', {
-        templateUrl: 'public/views/grid-view.html',
-        controller: 'grid-view-controller'
-    })
+            templateUrl: 'public/views/grid-view.html',
+            controller: 'grid-view-controller'
+
+        })
+        .when('/visualizations', {
+            templateUrl: 'public/views/visualizations.html',
+            controller: 'visualizationController'
+
+        })
 
 });
 
