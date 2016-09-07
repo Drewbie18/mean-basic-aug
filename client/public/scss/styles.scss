@@ -22,9 +22,14 @@ http://stackoverflow.com/questions/14207109/hiding-elements-in-responsive-layout
 
 }
 
+[class^="row"]{
+  border: solid orange;
+}
+
 .tall-box {
   height: 400px;
   @include danger;
+
 }
 
 #right-hand {

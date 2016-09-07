@@ -41,6 +41,11 @@ angularApp.config(function ($routeProvider) {
             controller: 'visualizationController'
 
         })
+        .when('/wireframe', {
+            templateUrl: 'public/views/wireframe.html',
+            controller: 'wireFrameController'
+
+        })
 
 });
 

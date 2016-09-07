@@ -14,6 +14,9 @@ http://stackoverflow.com/questions/14207109/hiding-elements-in-responsive-layout
 @media only screen and (min-width: 768px) {
   .box {
     background-color: #2e6da4; } }
+[class^="row"] {
+  border: solid orange; }
+
 .tall-box {
   height: 400px;
   background-color: red;
