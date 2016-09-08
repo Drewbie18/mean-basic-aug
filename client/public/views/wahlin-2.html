@@ -8,7 +8,18 @@
 <h1>{{title}}</h1>
 
 <hr>
-<button class="btn btn-default" ng-click="getTexts()">Press to Get Data</button>
+<button class="btn btn-default" ng-click="getTexts()" ng-disabled="disableBtn">Press to Get Data</button>
+<hr>
+<button class="btn btn-default" ng-click="enable()">ENABLE THE BUTTON</button>
+
+<label for="year-selector">Year: </label>
+<select name="year-selector" id="year-selector" ng-model="yearSelect">
+    <option ng-repeat="year in years" value="{{year}}">{{year}}</option>
+</select>
+
+<button class="btn btn-default" ng-click="getTexts()" ng-disabled="Boolean(yearSelect)">Press to Get Data</button>
+
+<h3>{{number}}</h3>
 
 </body>
 </html>

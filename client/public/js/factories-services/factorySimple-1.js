@@ -33,7 +33,7 @@
 
 }());
 
-//alternate syntax, in this case you are just directly creating the mothod on the object to be
+//alternate syntax, in this case you are just directly creating the method on the object to be
 //returned directly and not adding the method AFTER creating the empty object.
 //matter of taste
 (function () {
