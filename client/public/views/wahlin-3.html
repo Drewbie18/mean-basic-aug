@@ -18,6 +18,15 @@
 <hr>
 <!--have to use the data-binding expression not the literal expression-->
 <pass-string name="{{people[1].name}}"></pass-string>
+<br>
+<hr>
+<h3>Isolate Scope with two way binding to object</h3>
+<two-way-bind datasource="people[0]"></two-way-bind>
+<hr>
+<hr>
+<h3>BIND A FUNCTION</h3>
+<function-bind action="changeText()" datasource="people[1]"></function-bind>
+<p>{{text}}</p>
 
 
 </body>

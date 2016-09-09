@@ -1,5 +1,7 @@
 /**
  * Created by Drew on 2016-09-05.
+ *
+ * This controller will be used to assist the directive demos!
  */
 (function () {
 
@@ -16,6 +18,13 @@
             "name": 'Corry',
             "age": 28
         }];
+
+
+        $scope.text = "HERE IS SOMETHING!";
+
+        $scope.changeText = function () {
+            $scope.text = "I'VE BEEN CHANGED!!";
+        };
 
 
     }
