@@ -5,6 +5,7 @@ http://stackoverflow.com/questions/14207109/hiding-elements-in-responsive-layout
 */
 /*BASIC Variable set-up with simple conditional example. */
 /*DEFINE MIXINS HERE*/
+/*MIXIN FOR SCREEN SIZES TAKEN ROUGHLY FROM GOOGLE INSPECT*/
 .box {
   background-color: #f0ad4e;
   border: #0f0f0f dashed;
@@ -16,6 +17,9 @@ http://stackoverflow.com/questions/14207109/hiding-elements-in-responsive-layout
     background-color: #2e6da4; } }
 [class^="row"] {
   border: solid orange; }
+
+[class^="col"] {
+  border: black dashed thin; }
 
 .tall-box {
   height: 400px;
@@ -30,5 +34,7 @@ http://stackoverflow.com/questions/14207109/hiding-elements-in-responsive-layout
   width: 100%;
   padding: 5px;
   margin: 0; }
+
+/*-----------Animation Code------------*/
 
 /*# sourceMappingURL=styles.css.map */

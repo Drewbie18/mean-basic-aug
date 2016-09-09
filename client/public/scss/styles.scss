@@ -19,17 +19,34 @@ http://stackoverflow.com/questions/14207109/hiding-elements-in-responsive-layout
     background-color: #2e6da4;
 
   }
-
 }
 
-[class^="row"]{
-  border: solid orange;
+$wireFrame:on;
+
+@if $wireFrame ==on{
+
+  [class^="row"]{
+    border: solid orange;
+  }
+
+  [class ^="col"]{
+    border: black dashed thin;
+  }
+
+}@else if $wireFrame == off{
+  [class^="row"]{
+    border: none;
+  }
+
+  [class ^="col"]{
+    border: none;
+  }
+
 }
 
 .tall-box {
   height: 400px;
   @include danger;
-
 }
 
 #right-hand {
@@ -41,3 +58,15 @@ http://stackoverflow.com/questions/14207109/hiding-elements-in-responsive-layout
   padding: 5px;
   margin:0;
 }
+
+/*-----------Animation Code------------*/
+
+
+
+
+
+
+
+
+
+
