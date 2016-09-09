@@ -59,10 +59,61 @@ $wireFrame:on;
   margin:0;
 }
 
+/*-----------Sidebar scss------------*/
+/*http://stackoverflow.com/questions/1575141/make-div-100-height-of-browser-window*/
+body{
+  height: 100%;
+}
+
+#sidebar-wrapper{
+  width: 20%;
+  height: 100vh;
+  background-color: #2e6da4;
+  opacity: 0.2;
+
+}
+
+#sidebar-list{
+
+  color: lightblue;
+  opacity:1;
+
+}
+
+#sidebar-list li:hover{
+  color: black;
+  background-color: orchid;
+}
+
+
 /*-----------Animation Code------------*/
 
 
 
+#viz-title{
+
+  color: black;
+
+  @include mobile-large{
+    color:red;
+  }
+
+  @include mobile-small{
+    color:greenyellow;
+  }
+
+  @include tablet-screen{
+    color: orchid;
+  }
+
+  @include laptop-screen{
+    color: brown;
+  }
+
+  @include large-screens{
+    color: blue;
+  }
+}
 
 
 

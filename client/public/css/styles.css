@@ -35,6 +35,42 @@ http://stackoverflow.com/questions/14207109/hiding-elements-in-responsive-layout
   padding: 5px;
   margin: 0; }
 
+/*-----------Sidebar scss------------*/
+/*http://stackoverflow.com/questions/1575141/make-div-100-height-of-browser-window*/
+body {
+  height: 100%; }
+
+#sidebar-wrapper {
+  width: 20%;
+  height: 100vh;
+  background-color: #2e6da4;
+  opacity: 0.2; }
+
+#sidebar-list {
+  color: lightblue;
+  opacity: 1; }
+
+#sidebar-list li:hover {
+  color: black;
+  background-color: orchid; }
+
 /*-----------Animation Code------------*/
+#viz-title {
+  color: black; }
+  @media only screen and (max-width: 480px) and (min-width: 321px) {
+    #viz-title {
+      color: red; } }
+  @media only screen and (min-width: 0px) and (max-width: 320px) {
+    #viz-title {
+      color: greenyellow; } }
+  @media only screen and (max-width: 780px) and (min-width: 481px) {
+    #viz-title {
+      color: orchid; } }
+  @media only screen and (max-width: 1024px) and (min-width: 781px) {
+    #viz-title {
+      color: brown; } }
+  @media only screen and (min-width: 1025px) {
+    #viz-title {
+      color: blue; } }
 
 /*# sourceMappingURL=styles.css.map */
