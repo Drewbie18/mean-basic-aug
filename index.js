@@ -57,4 +57,17 @@ app.get('/api/comments/none', function(req, res){
 });
 
 
+app.get('/api/data1', function(req, res){
+
+    var data = {
+    data: "A message that is not an error", status: 200, config: Object, statusText: "OK"
+    }
+
+    var response = {};
+
+    res.json(data);
+
+});
+
+
 app.listen(port);

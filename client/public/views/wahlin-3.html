@@ -27,6 +27,17 @@
 <h3>BIND A FUNCTION</h3>
 <function-bind action="changeText()" datasource="people[1]"></function-bind>
 <p>{{text}}</p>
+<br>
+<hr>
+<h5>{{id}}</h5>
+<h5>{{something}}</h5>
+<h5>{{name}}</h5>
+<h5>{{number}}</h5>
+<div class="row" ng-show="httpError">
+    <div class="col-lg-8">
+        <div class="alert alert-danger" role="alert" id="bad-http-response-alert-div"><h5>THERE WAS AN HTTP ERROR: {{httpErrorCode}}</h5></div>
+    </div>
+</div>
 
 
 </body>
