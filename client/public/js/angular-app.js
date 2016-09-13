@@ -46,6 +46,11 @@ angularApp.config(function ($routeProvider) {
             controller: 'wireFrameController'
 
         })
+        .when('/link', {
+            templateUrl: 'public/views/link-function.html',
+            controller: 'linkController'
+
+        })
 
 });
 
