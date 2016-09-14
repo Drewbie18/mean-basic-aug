@@ -7,6 +7,29 @@
 <body>
 <h3 link-demo>Hover the mouse over me.</h3>
 
+<!--<map-geo-location width="400" height="400"></map-geo-location>-->
+
+
+<hr>
+<h3>Delay Bind Directive</h3>
+<div>
+    <ul>
+        <li ng-repeat="text in texts"
+            delay-bind="{{::text.id}}"
+            attribute = "title"
+            trigger = "mouseenter">
+            <a delay-bind="{{::text.author}}"
+               attribute="href"
+               trigger="mouseenter">
+                {{text.text}}
+            </a>
+        </li>
+    </ul>
+    <div>Total Texts: {{::texts.length}}</div>
+</div>
+
+
+
 
 
 </body>

@@ -11,7 +11,7 @@ var generateRandom = require('./randomNumber');
 
 var texts = [];
 //create complete objects
-for (var i = 0; i < 10; i++) {
+for (var i = 0; i < 50; i++) {
     var textId = 'prefix' + generateRandom(0, 100000);
     var text = 'some text-' + i;
     var author = 'author: ' + generateRandom(0, 100000);
@@ -32,7 +32,7 @@ for (var i = 0; i < 10; i++) {
 
 var empty = {};
 
-texts.push(empty);
+//texts.push(empty);
 //add an object with null fields
 var nullFields = {
     "textId": null,
@@ -42,7 +42,7 @@ var nullFields = {
     "number": null
 }
 
-texts.push(nullFields);
+//texts.push(nullFields);
 //object with no information
 var emptyStrings = {
     "textId": "",
@@ -53,7 +53,7 @@ var emptyStrings = {
 
 }
 
-texts.push(emptyStrings);
+//texts.push(emptyStrings);
 //object with fields missing. 
 var missFields = {
     "textId": "miss Fields",
@@ -62,7 +62,7 @@ var missFields = {
 
 }
 
-texts.push(missFields);
+//texts.push(missFields);
 
 
 module.exports = texts;

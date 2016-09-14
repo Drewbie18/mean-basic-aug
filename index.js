@@ -7,6 +7,10 @@ var app = express();
 var port = process.env.port || 3000;
 
 
+
+app.use('/', express.static(__dirname));
+
+
 //map a virtual route /public in place of the actual /app,
 // this will be used to fetch JS and CSS files
 app.use('/public', express.static(__dirname + '/client/public'));
