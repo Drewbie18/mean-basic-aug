@@ -5,6 +5,32 @@
     <title>Title</title>
 </head>
 <body>
+<button class="btn btn-primary" ng-click="getAssets()">
+    GET THE ASSETS
+</button>
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="panel panel-primary simulator-select" id="asset-panel">
+            <div class="panel-heading"><h3 class="panel-title">Assets Available</h3></div>
+            <div class="row" id="asset-selector-row">
+                <div class="col-lg-12 ">
+                    <label for="asset-selector" id="asset-selector-label">Select an
+                        Asset:</label><br>
+                    <select multiple name="asset-selector" id="asset-selector"
+                            ng-options="asset.id as asset.description for asset in assets"
+                            ng-model="assetSelect">
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h3>{{assetSelect}}</h3>
+
+
 
 </body>
 </html>

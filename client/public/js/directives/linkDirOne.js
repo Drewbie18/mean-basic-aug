@@ -36,7 +36,7 @@
 
 //This will be a directive that takes height, width and displays a google map.
 
-
+/*
 (function () {
 
     var mapGeoLocation = ['$window', function ($window) {
@@ -118,7 +118,7 @@
     angular.module('angular-app').directive('mapGeoLocation', mapGeoLocation);
 
 }());
-
+*/
 //Show the compile feature, and how a binding can be delayed.
 
 (function () {

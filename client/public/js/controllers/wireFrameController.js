@@ -6,24 +6,34 @@
  */
 (function () {
 
-    var wireFrameController = function ($scope, $log) {
-        $log.log('wahlin-3-controller is here');
-
-        $scope.title = 'THIS IS THE THIRD PAGE';
+    var wireFrameController = function ($scope, $log, $http) {
+        $log.log('wireframe is here');
 
 
-        $scope.people = [{
-            "name": 'Drew',
-            "age": 28
-        }, {
-            "name": 'Corry',
-            "age": 28
-        }];
+        $scope.getAssets = function(){
+
+            $http({
+                method: 'GET',
+                url: '/api/assets'
+            }).then(function successCallback(response) {
+
+                $log.log(response.data);
 
 
-    }
+                $scope.assets = response.data;
 
-    wireFrameController.$inject = ['$scope', '$log'];
+
+            }, function errorCallback(response) {
+
+                $log.log('There was an error: ' + response.data);
+
+            });
+        }
+
+
+    };
+
+    wireFrameController.$inject = ['$scope', '$log', '$http'];
 
     //register the controller with the angular module
     angular.module('angular-app').controller('wireFrameController', wireFrameController);
