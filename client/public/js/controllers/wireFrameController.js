@@ -10,7 +10,10 @@
         $log.log('wireframe is here');
 
 
-        $scope.getAssets = function(){
+        var assets;
+
+
+        $scope.getAssets = function () {
 
             $http({
                 method: 'GET',
@@ -21,6 +24,10 @@
 
 
                 $scope.assets = response.data;
+                var selectedAssets = $scope.assetSelect;
+
+
+                var assets = response.data;
 
 
             }, function errorCallback(response) {
@@ -29,6 +36,50 @@
 
             });
         }
+
+
+        $scope.enableSendBtn = function (selectedAssets) {
+            return !Boolean(selectedAssets);
+
+        };
+
+
+        $scope.sendAlert = function (assets, selectedAssets) {
+
+            $log.log(Boolean(selectedAssets));
+
+
+            if (!Boolean(selectedAssets)) {
+                return null;
+            } else {
+
+                var assetsIdArray = [];
+                for (var i = 0; i < assets.length; i++) {
+
+                    if (selectedAssets.indexOf(assets[i].id) != -1) {
+                        var asset = {
+                            refId: assets[i].id,
+                            wsiId: assets[i].wsiId
+                        }
+
+                        assetsIdArray.push(asset);
+
+                    }
+
+                }
+
+                $log.log(assetsIdArray);
+                return assetsIdArray;
+
+            }
+        }
+
+
+
+     
+
+
+
 
 
     };

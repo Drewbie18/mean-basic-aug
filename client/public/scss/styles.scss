@@ -21,7 +21,7 @@ http://stackoverflow.com/questions/14207109/hiding-elements-in-responsive-layout
   }
 }
 
-$wireFrame:on;
+$wireFrame:off;
 
 @if $wireFrame ==on{
 

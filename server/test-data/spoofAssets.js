@@ -9,9 +9,9 @@ for (var i = 0; i < 10; i++) {
 
 
     var asset = {
-        id: 'Location1',
-        orgId: 's600384535',
-        wsiId: 'f4a85f77-b398-4d23-88c0-24e7bb77cc54',
+        id: 'Location-' + i,
+        orgId: 's600384535' +i ,
+        wsiId: 'f4a85f77-b398-4d23-88c0-24e7bb77cc54-' + i,
         description: 'Nash\'s House',
         location: {
             street: '3755 Riverside Drive',
