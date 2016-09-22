@@ -43,11 +43,8 @@
 
         };
 
-
         $scope.sendAlert = function (assets, selectedAssets) {
-
             $log.log(Boolean(selectedAssets));
-
 
             if (!Boolean(selectedAssets)) {
                 return null;
@@ -61,11 +58,8 @@
                             refId: assets[i].id,
                             wsiId: assets[i].wsiId
                         }
-
                         assetsIdArray.push(asset);
-
                     }
-
                 }
                 $log.log(assetsIdArray);
                 return assetsIdArray;
@@ -74,13 +68,10 @@
 
 
         var date = new Date();
-
         $scope.sharedDate = date;
-        
+
         $scope.showDate = function (date) {
-
             var utcDate = $filter('date')(date, 'yyyy-MM-ddTHH:mm:ss Z')
-
             $log.log(date);
             $log.log(utcDate);
             
