@@ -6,7 +6,7 @@
  */
 (function () {
 
-    var wireFrameController = function ($scope, $log, $http) {
+    var wireFrameController = function ($scope, $log, $http, $filter) {
         $log.log('wireframe is here');
 
 
@@ -67,24 +67,29 @@
                     }
 
                 }
-
                 $log.log(assetsIdArray);
                 return assetsIdArray;
-
             }
         }
 
 
+        var date = new Date();
 
-     
+        $scope.sharedDate = date;
+        
+        $scope.showDate = function (date) {
 
+            var utcDate = $filter('date')(date, 'yyyy-MM-ddTHH:mm:ss Z')
 
-
+            $log.log(date);
+            $log.log(utcDate);
+            
+        }
 
 
     };
 
-    wireFrameController.$inject = ['$scope', '$log', '$http'];
+    wireFrameController.$inject = ['$scope', '$log', '$http', '$filter'];
 
     //register the controller with the angular module
     angular.module('angular-app').controller('wireFrameController', wireFrameController);
