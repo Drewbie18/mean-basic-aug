@@ -1,9 +1,9 @@
 /**
  * Created by payetted on 9/7/2016.
+ *
+ * http://www.codelord.net/2014/06/25/generic-error-handling-in-angularjs/
  */
-/**
- * Created by Drew on 2016-09-05.
- */
+
 (function () {
 
     var wireFrameController = function ($scope, $log, $http, $filter) {
@@ -31,21 +31,27 @@
 
         $scope.loadOrgDetails = function (orgId) {
 
-            $http({
-                method: 'GET',
-                url: 'api/' + orgId + '/perils',
-            }).then(function successCallback(response) {
+            try {
+
+                $http({
+                    method: 'GET',
+                    url: 'api/' + orgId + '/perils1',
+                }).then(function successCallback(response) {
 
 
-                $log.log(response.data);
-                $scope.perils = response.data;
+                    $log.log(response.data);
+                    $scope.perils = response.data;
 
-                $log.log('HERE-1');
-            }, function errorCallback(response) {
+                    $log.log('HERE-1');
+                }, function errorCallback(response) {
 
-                $log.log('There was an error: ' + response.data);
+                    $log.log('There was an error: ' + response.data);
 
-            });
+                });
+            }
+            catch(e){
+                $log.log('There was an HTTP ERROR:', e)
+            }
 
 
             $log.log('HERE');
