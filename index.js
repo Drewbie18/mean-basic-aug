@@ -74,10 +74,12 @@ app.get('/api/data1', function (req, res) {
 
 //spoof assets
 //another simple get to use an http call to get the spoof data
-var data = require('./server/test-data/spoofAssets');
-app.get('/api/assets', function (req, res) {
+var assets = require('./server/test-data/spoofAssets');
+app.get('/api/:orgId/assets', function (req, res) {
 
-    res.json(data);
+    var assetResponse = assets(req.params.orgId);
+    console.log(assetResponse);
+    res.json(assetResponse);
 
 });
 

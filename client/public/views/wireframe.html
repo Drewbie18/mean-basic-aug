@@ -15,7 +15,7 @@
                         <select name="org-selector" id="org-selector"
                                 ng-options="org.textId as org.author for org in orgs"
                                 ng-model="orgSelect"
-                                ng-change="getPerils(orgSelect)">
+                                ng-change="loadOrgDetails(orgSelect)">
                         </select>
                     </div>
                     <hr>
@@ -26,6 +26,13 @@
                                 ng-model="perilSelect">
                         </select>
                     </div>
+                    <div class="row">
+                        <div class="alert alert-danger warning-animation" role="alert" id="asset-no-data"
+                             ng-show=true>
+                            <h5>THERE ARE NO ASSETS TO CHOOSE FROM</h5>
+                        </div>
+                    </div>
+
                     <hr>
                     <div class="row">
                         <label class="control-label" id="time-label"> Select a
@@ -38,12 +45,7 @@
                                data-time-format="hh:mm:ss a" data-autoclose="1" placeholder="Time"
                                bs-timepicker id="time-picker">
                     </div>
-                    <hr>
-                    <div class="row">
-                        <button class="btn btn-primary" ng-click="getAssets()">
-                            GET THE ASSETS
-                        </button>
-                    </div>
+
                     <hr>
                     <div class="row">
                         <label for="asset-selector" id="asset-selector-label">Select an
@@ -57,7 +59,7 @@
                     </div>
                     <hr>
                     <div class="row">
-                        <button class="btn btn-primary" ng-click="sendAlert(assets, assetSelect)"
+                        <button class="btn btn-primary" ng-click="sendAlert(orgSelect, perilSelect,selectedTime, assets, assetSelect )"
                                 ng-disabled="enableSendBtn(assetSelect)">
                             SEND ALERT
                         </button>

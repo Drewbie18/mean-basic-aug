@@ -10,9 +10,9 @@
         $log.log('wireframe is here');
 
 
-        $scope.assetSelectorHeight  = 16;
+        $scope.assetSelectorHeight = 16;
 
-        
+
         //on page load get org
         $http({
             method: 'GET',
@@ -29,7 +29,7 @@
 
         });
 
-        $scope.getPerils = function(orgId){
+        $scope.loadOrgDetails = function (orgId) {
 
             $http({
                 method: 'GET',
@@ -40,6 +40,7 @@
                 $log.log(response.data);
                 $scope.perils = response.data;
 
+                $log.log('HERE-1');
             }, function errorCallback(response) {
 
                 $log.log('There was an error: ' + response.data);
@@ -47,35 +48,24 @@
             });
 
 
-        }
-        
-        
-
-        var assets;
-
-
-        $scope.getAssets = function () {
+            $log.log('HERE');
 
             $http({
                 method: 'GET',
-                url: '/api/assets'
-            }).then(function successCallback(response) {
-
-                $log.log(response.data);
+                url: 'api/' + orgId + '/assets',
+            }).then(function successCallback(assetResponse) {
 
 
-                $scope.assets = response.data;
-                var selectedAssets = $scope.assetSelect;
+                $log.log(assetResponse.data);
+                $scope.assets = assetResponse.data;
 
+            }, function errorCallback(assetResponse) {
 
-                var assets = response.data;
-
-
-            }, function errorCallback(response) {
-
-                $log.log('There was an error: ' + response.data);
+                $log.log('There was an error: ' + assetResponse.data);
 
             });
+
+
         }
 
 
@@ -84,7 +74,9 @@
 
         };
 
-        $scope.sendAlert = function (assets, selectedAssets) {
+        var createAssetIdArray = function (assets, selectedAssets) {
+
+
             $log.log(Boolean(selectedAssets));
 
             if (!Boolean(selectedAssets)) {
@@ -108,14 +100,30 @@
         }
 
 
+        //set default time to current time.
         var date = new Date();
-        $scope.sharedDate = date;
+        $scope.selectedTime = date;
 
-        $scope.showDate = function (date) {
-            var utcDate = $filter('date')(date, 'yyyy-MM-ddTHH:mm:ss Z')
-            $log.log(date);
-            $log.log(utcDate);
-            
+        //accept all details.
+        $scope.sendAlert = function (selectedOrg, selectedPeril, selectedTime, assets, assetSelect) {
+
+            //create the the selected asset ID array (just refID and wsiId)
+            var assetsIdArray = createAssetIdArray(assets, assetSelect);
+            //create a UUID for the request.
+            var simKey = 'weather-simulator-' + selectedTime.toJSON();
+
+            var requestBody = {
+                "ticker": selectedOrg,
+                "productCode": selectedPeril,
+                "alertKey": simKey,
+                "perilLey": simKey,
+                //UTC timestamp selected by user in UI
+                "timestamp": selectedTime.toJSON(),
+                "impacts": assetsIdArray
+
+            }
+
+            $log.log(requestBody);
         }
 
 
