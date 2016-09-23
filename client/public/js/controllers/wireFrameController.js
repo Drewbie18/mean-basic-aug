@@ -10,6 +10,47 @@
         $log.log('wireframe is here');
 
 
+        $scope.assetSelectorHeight  = 16;
+
+        
+        //on page load get org
+        $http({
+            method: 'GET',
+            url: '/api/comments/all'
+        }).then(function successCallback(response) {
+
+
+            $log.log(response.data);
+            $scope.orgs = response.data;
+
+        }, function errorCallback(response) {
+
+            $log.log('There was an error: ' + response.data);
+
+        });
+
+        $scope.getPerils = function(orgId){
+
+            $http({
+                method: 'GET',
+                url: 'api/' + orgId + '/perils',
+            }).then(function successCallback(response) {
+
+
+                $log.log(response.data);
+                $scope.perils = response.data;
+
+            }, function errorCallback(response) {
+
+                $log.log('There was an error: ' + response.data);
+
+            });
+
+
+        }
+        
+        
+
         var assets;
 
 

@@ -7,7 +7,6 @@ var app = express();
 var port = process.env.port || 3000;
 
 
-
 app.use('/', express.static(__dirname));
 
 
@@ -28,7 +27,7 @@ app.get('/', function (req, res) {
 
 
 //simple test of getting route params from request
-app.get('/api/item/:item_id/:item_name', function(req, res){
+app.get('/api/item/:item_id/:item_name', function (req, res) {
 
     var responseObj = {
         "_id": req.params.item_id,
@@ -42,18 +41,18 @@ app.get('/api/item/:item_id/:item_name', function(req, res){
 
 
 //another simple get to use an http call to get the spoof data
-var data = require('./server/test-data/spoof-comments');
+var orgs = require('./server/test-data/spoof-comments');
 var generateRandom = require('./server/test-data/randomNumber');
 
-app.get('/api/comments/all', function(req, res){
+app.get('/api/comments/all', function (req, res) {
 
-    console.log(generateRandom(0,10));
-    res.json(data);
-    
+    console.log(generateRandom(0, 10));
+    res.json(orgs);
+
 
 });
 
-app.get('/api/comments/none', function(req, res){
+app.get('/api/comments/none', function (req, res) {
 
     var data = {};
     res.json(data);
@@ -61,10 +60,10 @@ app.get('/api/comments/none', function(req, res){
 });
 
 
-app.get('/api/data1', function(req, res){
+app.get('/api/data1', function (req, res) {
 
     var data = {
-    data: "A message that is not an error", status: 200, config: Object, statusText: "OK"
+        data: "A message that is not an error", status: 200, config: Object, statusText: "OK"
     }
 
     var response = {};
@@ -73,13 +72,27 @@ app.get('/api/data1', function(req, res){
 
 });
 
-
 //spoof assets
 //another simple get to use an http call to get the spoof data
 var data = require('./server/test-data/spoofAssets');
-app.get('/api/assets', function(req, res){
+app.get('/api/assets', function (req, res) {
 
     res.json(data);
+
+});
+
+
+//get perils function
+var perils = require('./server/test-data/spoofPerils');
+app.get('/api/:orgId/perils', function (req, res) {
+
+    //create list of perils with orgId
+    var perilsResponse = perils(req.params.orgId);
+
+    console.log(perilsResponse);
+
+    //send response.
+    res.json(perilsResponse);
 
 });
 

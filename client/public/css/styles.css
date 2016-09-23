@@ -73,4 +73,24 @@ body {
     #viz-title {
       color: blue; } }
 
+hr {
+  margin-top: 5px;
+  margin-bottom: 5px; }
+
+#time-picker {
+  width: 30%;
+  float: left; }
+
+#date-picker {
+  width: 25%;
+  float: left;
+  margin-right: 5px; }
+
+#time-label {
+  float: left;
+  margin-right: 5px; }
+
+#asset-selector {
+  min-width: 50%; }
+
 /*# sourceMappingURL=styles.css.map */
