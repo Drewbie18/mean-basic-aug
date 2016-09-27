@@ -18,6 +18,16 @@
                                 ng-change="loadOrgDetails(orgSelect)">
                         </select>
                     </div>
+                    <div class="row warning-animation" ng-show="orgNoData">
+                        <div class="alert alert-danger warning-animation" role="alert" id="org-no-data">
+                            <h5>THERE ARE NO ASSETS TO CHOOSE FROM</h5>
+                        </div>
+                    </div>
+                    <div class="row warning-animation" ng-show="orgHttpErr">
+                        <div class="alert alert-danger " role="alert" id="org-http-err">
+                            <h5>HTTP ERROR: {{orgHttpErrCode}} - {{orgHttpStatusCode}}</h5>
+                        </div>
+                    </div>
                     <hr>
                     <div class="row">
                         <label for="peril-selector">Peril: </label>
@@ -26,10 +36,14 @@
                                 ng-model="perilSelect">
                         </select>
                     </div>
-                    <div class="row">
-                        <div class="alert alert-danger warning-animation" role="alert" id="asset-no-data"
-                             ng-show=true>
+                    <div class="row warning-animation" ng-show="perilNoData">
+                        <div class="alert alert-danger warning-animation" role="alert" id="peril-no-data">
                             <h5>THERE ARE NO ASSETS TO CHOOSE FROM</h5>
+                        </div>
+                    </div>
+                    <div class="row warning-animation" ng-show="perilHttpErr">
+                        <div class="alert alert-danger " role="alert" id="peril-http-err">
+                            <h5>HTTP ERROR: {{httpErrorCode}} - {{httpStatusCode}}</h5>
                         </div>
                     </div>
 
@@ -56,10 +70,22 @@
                                 ng-options="asset.id as asset.id for asset in assets"
                                 ng-model="assetSelect">
                         </select>
+
+                        <div class="row warning-animation" ng-show="assetNoData">
+                            <div class="alert alert-danger warning-animation" role="alert" id="asset-no-data">
+                                <h5>THERE ARE NO ASSETS TO CHOOSE FROM</h5>
+                            </div>
+                        </div>
+                        <div class="row warning-animation" ng-show="assetHttpErr">
+                            <div class="alert alert-danger " role="alert" id="asset-http-err">
+                                <h5>HTTP ERROR: {{assetHttpErrCode}} - {{assetHttpStatusCode}}</h5>
+                            </div>
+                        </div>
                     </div>
                     <hr>
                     <div class="row">
-                        <button class="btn btn-primary" ng-click="sendAlert(orgSelect, perilSelect,selectedTime, assets, assetSelect )"
+                        <button class="btn btn-primary"
+                                ng-click="sendAlert(orgSelect, perilSelect,selectedTime, assets, assetSelect )"
                                 ng-disabled="enableSendBtn(assetSelect)">
                             SEND ALERT
                         </button>

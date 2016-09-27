@@ -7,88 +7,119 @@
 (function () {
 
     var wireFrameController = function ($scope, $log, $http, $filter) {
+
         $log.log('wireframe is here');
 
+        //set default asset list height
+        $scope.assetSelectorHeight = 10;
 
-        $scope.assetSelectorHeight = 16;
+        //set default time to current time.
+        var date = new Date();
+        $scope.selectedTime = date;
 
+        //set default error flags to false
+        $scope.orgHttpErr = false;
+        $scope.orgNoData = false;
+        $scope.perilHttpErr = false;
+        $scope.perilNoData = false;
+        $scope.assetHttpErr = false;
+        $scope.assetNoData = false;
 
-        //on page load get org
+        //on page load get org list
         $http({
             method: 'GET',
             url: '/api/comments/all'
         }).then(function successCallback(response) {
 
+            //if org list is empty throw no data error
+            if (response.data.length == 0) {
+                $scope.orgNoData = true;
+                return;
+            }
 
-            $log.log(response.data);
+            //if org list is not empty set error flags to false
+            $scope.orgHttpErr = false;
+            $scope.orgNoData = false;
+            //push response to UI
             $scope.orgs = response.data;
 
         }, function errorCallback(response) {
+
+            //http error flags and data to display
+            $scope.orgHttpErr = true;
+            $scope.orgHttpErrCode = response.status;
+            $scope.orgHttpStatusCode = response.statusText;
 
             $log.log('There was an error: ' + response.data);
 
         });
 
+
+        //on change/selection of an org this function will run to grab the org's perils and asset lists.
         $scope.loadOrgDetails = function (orgId) {
-
-            try {
-
-                $http({
-                    method: 'GET',
-                    url: 'api/' + orgId + '/perils1',
-                }).then(function successCallback(response) {
-
-
-                    $log.log(response.data);
-                    $scope.perils = response.data;
-
-                    $log.log('HERE-1');
-                }, function errorCallback(response) {
-
-                    $log.log('There was an error: ' + response.data);
-
-                });
-            }
-            catch(e){
-                $log.log('There was an HTTP ERROR:', e)
-            }
-
-
-            $log.log('HERE');
-
+            //get the perils for the org selected.
             $http({
                 method: 'GET',
-                url: 'api/' + orgId + '/assets',
-            }).then(function successCallback(assetResponse) {
+                url: 'api/' + orgId + '/perils',
+            }).then(function successCallback(response) {
 
+                if (response.data.length == 0) {
+                    $scope.perilNoData = true;
+                    $scope.perilHttpErr = false;
+                    return;
+                }
 
-                $log.log(assetResponse.data);
-                $scope.assets = assetResponse.data;
+                $scope.perilHttpErr = false;
+                $scope.perilNoData = false;
+                $log.log(response.data);
+                $scope.perils = response.data;
 
-            }, function errorCallback(assetResponse) {
+            }, function errorCallback(response) {
 
-                $log.log('There was an error: ' + assetResponse.data);
+                $scope.perilHttpErr = true;
+                $scope.httpErrorCode = response.status;
+                $scope.httpStatusCode = response.statusText;
+                $log.log(response);
 
             });
 
+            //get ASSETS for org selected.
+            $http({
+                method: 'GET',
+                url: 'api/' + orgId + '/assets',
+            }).then(function successCallback(response) {
 
-        }
+                if (response.data.length == 0) {
+                    $scope.assetNoData = true;
+                    return;
+                }
 
+                $scope.assetHttpErr = false;
+                $scope.assetNoData = false;
+                $log.log(response.data);
+                $scope.assets = response.data;
+
+            }, function errorCallback(response) {
+
+                $scope.assetHttpErr = true;
+                $scope.assetHttpErrCode = response.status;
+                $scope.assetHttpStatusCode = response.statusText;
+                $log.log(response);
+
+            });
+
+        };
 
         $scope.enableSendBtn = function (selectedAssets) {
             return !Boolean(selectedAssets);
-
         };
 
         var createAssetIdArray = function (assets, selectedAssets) {
 
-
             $log.log(Boolean(selectedAssets));
-
             if (!Boolean(selectedAssets)) {
                 return null;
             } else {
-
                 var assetsIdArray = [];
                 for (var i = 0; i < assets.length; i++) {
 
@@ -103,12 +134,8 @@
                 $log.log(assetsIdArray);
                 return assetsIdArray;
             }
-        }
+        };
 
-
-        //set default time to current time.
-        var date = new Date();
-        $scope.selectedTime = date;
 
         //accept all details.
         $scope.sendAlert = function (selectedOrg, selectedPeril, selectedTime, assets, assetSelect) {
@@ -128,12 +155,10 @@
                 "impacts": assetsIdArray
 
             }
-
             $log.log(requestBody);
         }
-
-
     };
+
 
     wireFrameController.$inject = ['$scope', '$log', '$http', '$filter'];
 
