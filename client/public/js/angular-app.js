@@ -51,6 +51,16 @@ angularApp.config(function ($routeProvider) {
             controller: 'linkController'
 
         })
+        .when('/gallery', {
+            templateUrl: 'public/views/gallery.html',
+            controller: 'galleryController'
+
+        })
+        .when('/d3', {
+            templateUrl: 'public/views/d3.html',
+            controller: 'dThreeController'
+
+        })
 
 });
 

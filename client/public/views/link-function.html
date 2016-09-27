@@ -16,8 +16,8 @@
     <ul>
         <li ng-repeat="text in texts"
             delay-bind="{{::text.id}}"
-            attribute = "title"
-            trigger = "mouseenter">
+            attribute="title"
+            trigger="mouseenter">
             <a delay-bind="{{::text.author}}"
                attribute="href"
                trigger="mouseenter">
@@ -28,8 +28,22 @@
     <div>Total Texts: {{::texts.length}}</div>
 </div>
 
+<h1>This is with the controller</h1>
+
+<directive-with-controller></directive-with-controller>
 
 
+<h1>DEMO OF TRANSCLUDE</h1>
+
+
+<transclude-directive people="people">
+
+
+    <ul>
+        <li ng-repeat="person in people">{{person}}</li>
+    </ul>
+
+</transclude-directive>
 
 
 </body>
