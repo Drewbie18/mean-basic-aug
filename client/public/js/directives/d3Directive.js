@@ -10,7 +10,7 @@
             '<h3>{{variable}}</h3>';
 
         //define the controller that will be passed into the return.
-        controller = ['$scope', function ($scope) {
+        controller = ['$scope','d3Service', function ($scope, d3Service) {
             $scope.variable = 'Hello World';
 
         }];
