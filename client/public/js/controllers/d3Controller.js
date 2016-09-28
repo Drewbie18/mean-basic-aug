@@ -9,7 +9,6 @@
 
     var dThreeController = function ($scope, $http, $log) {
 
-
         $log.log('The d3 controller is here!');
 
 

@@ -38,7 +38,6 @@
 
 (function () {
 
-
     var transcludeDirective = function () {
 
         //create a template that will wrap the user's html in the transclude area
@@ -50,13 +49,10 @@
 
             '<h3>This is the end of the transclude</h3>';
 
-
         //define the controller, in this case just some data
         controller = ['$scope', function ($scope) {
 
-
             $scope.people = ['Drew', 'Corry', 'Dave', 'Andrew'];
-
 
         }];
 
@@ -69,10 +65,8 @@
             },
             controller: controller,
             template: template
-
         }
     }
-
 
     angular.module('angular-app').directive('transcludeDirective', transcludeDirective);
 
