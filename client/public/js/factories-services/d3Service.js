@@ -4,9 +4,8 @@
 
 (function () {
 
-
+//when d3Service is called this will return an object that contains all d3 methods. 
     var d3Service = function () {
-
 
         var d3;
         // d3 version 3 from http://d3js.org/d3.v3.min.js
@@ -5984,15 +5983,10 @@
             }), mo
         }();
         // end d3 source
-
-
         return d3;
 
-
     };
-
     angular.module('angular-app').factory('d3Service', d3Service);
-
 
 }());
 

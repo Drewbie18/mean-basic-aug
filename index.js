@@ -99,4 +99,14 @@ app.get('/api/:orgId/perils', function (req, res) {
 });
 
 
+//get perils function
+var monthData = require('./server/test-data/randomGraph');
+app.get('/api/month-data', function (req, res) {
+
+    //send response.
+    res.json(monthData);
+
+});
+
+
 app.listen(port);
