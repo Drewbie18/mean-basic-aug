@@ -9,6 +9,7 @@
 
         $log.log('The gallery is here!');
 
+        
 
 
     };

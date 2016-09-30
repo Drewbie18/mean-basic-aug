@@ -98,4 +98,9 @@ hr {
   border: solid thin;
   margin-left: 10px; }
 
+.bar-first {
+  fill: red;
+  shape-rendering: crispEdges;
+  border-radius: 5px; }
+
 /*# sourceMappingURL=styles.css.map */

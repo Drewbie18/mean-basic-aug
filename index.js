@@ -1,14 +1,17 @@
 /**
  * Created by Drew on 2016-08-29.
  */
+
+
 var express = require('express');
 var app = express();
+var http = require('http').Server(app);
+var socketIo = require('socket.io')(http);
+
 
 var port = process.env.port || 3000;
 
-
 app.use('/', express.static(__dirname));
-
 
 //map a virtual route /public in place of the actual /app,
 // this will be used to fetch JS and CSS files
@@ -107,6 +110,11 @@ app.get('/api/month-data', function (req, res) {
     res.json(monthData);
 
 });
+
+
+socketIo.on('connection', function (socket) {
+    console.log('A user has connected');
+})
 
 
 app.listen(port);

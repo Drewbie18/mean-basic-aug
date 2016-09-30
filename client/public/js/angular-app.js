@@ -9,7 +9,7 @@
  */
 
 
-var angularApp = angular.module('angular-app', ['ngRoute', 'ngAnimate', 'mgcrea.ngStrap', 'mgcrea.ngStrap.tooltip', 'mgcrea.ngStrap.helpers.dateParser' ]);
+var angularApp = angular.module('angular-app', ['ngRoute', 'ngAnimate', 'mgcrea.ngStrap', 'mgcrea.ngStrap.tooltip', 'mgcrea.ngStrap.helpers.dateParser']);
 
 angularApp.config(function ($routeProvider) {
 

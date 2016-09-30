@@ -15,19 +15,15 @@
             $scope.variable = 'Hello World';
 
             var data = [10, 15, 1, 2, 5, 6, 11];
-
             console.log(d3Service);
-           
 
             console.log(d3Service.min(data));
             $scope.minVal = d3Service.min(data);
-
 
         }];
 
         return {
             restrict: 'EA',
-
             scope: {},
             controller: controller,
             template: template
