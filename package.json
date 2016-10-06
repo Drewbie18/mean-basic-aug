@@ -20,11 +20,13 @@
     "angular": "^1.5.8",
     "angular-animate": "^1.5.8",
     "angular-route": "^1.5.8",
+    "angular-spinner": "^0.8.1",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "moment": "^2.14.1",
     "mongoose": "^4.5.10",
     "request": "^2.74.0",
-    "socket.io": "^1.4.8"
+    "socket.io": "^1.4.8",
+    "spin": "0.0.1"
   }
 }

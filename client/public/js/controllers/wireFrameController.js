@@ -110,6 +110,17 @@
 
         };
 
+        //quick test to see if there is a value in shortname, if not use the id
+        $scope.perilName = function (peril) {
+            if (peril.shortName.en.text == "") {
+                return peril.id;
+            }
+            
+            return peril.shortName.en.text;
+
+        };
+
+
         $scope.enableSendBtn = function (selectedAssets) {
             return !Boolean(selectedAssets);
         };

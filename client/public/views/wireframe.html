@@ -32,9 +32,10 @@
                     <div class="row">
                         <label for="peril-selector">Peril: </label>
                         <select name="peril-selector" id="peril-selector"
-                                ng-options="peril.perilId as peril.perilId for peril in perils"
+                                ng-options="peril.id as perilName(peril) for peril in perils"
                                 ng-model="perilSelect">
                         </select>
+                        <h3>{{perilSelect}}</h3>
                     </div>
                     <div class="row warning-animation" ng-show="perilNoData">
                         <div class="alert alert-danger warning-animation" role="alert" id="peril-no-data">
@@ -95,6 +96,11 @@
         </div>
     </div>
 </div>
+
+<div class="container">
+    <span us-spinner="{radius:15, width:4, length: 5}"></span>
+</div>
+
 
 </body>
 </html>
