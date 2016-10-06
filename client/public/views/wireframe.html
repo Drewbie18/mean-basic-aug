@@ -98,9 +98,9 @@
 </div>
 
 <div class="container">
-    <span us-spinner="{radius:15, width:4, length: 5}"></span>
+    <span ng-show="showSpinner" us-spinner="{radius:5, width:2, length: 2}"></span>
 </div>
-
+<button class="btn btn-danger" ng-click="toggleSpinner()">SPINNER ON/OFF</button>
 
 </body>
 </html>

@@ -24,6 +24,14 @@
         $scope.perilNoData = false;
         $scope.assetHttpErr = false;
         $scope.assetNoData = false;
+        $scope.showSpinner = false;
+
+        //toggle spinner
+
+        $scope.toggleSpinner = function () {
+            $scope.showSpinner = !$scope.showSpinner;
+        };
+
 
         //on page load get org list
         $http({
@@ -115,7 +123,7 @@
             if (peril.shortName.en.text == "") {
                 return peril.id;
             }
-            
+
             return peril.shortName.en.text;
 
         };
