@@ -6,7 +6,7 @@
 
 (function () {
 
-    var wireFrameController = function ($scope, $log, $http, $filter) {
+    var wireFrameController = function ($scope, $log, $http) {
 
         $log.log('wireframe is here');
 
@@ -14,16 +14,29 @@
         $scope.assetSelectorHeight = 10;
 
         //set default time to current time.
-        var date = new Date();
-        $scope.selectedTime = date;
+
+        $scope.selectedTime = new Date();
 
         //set default error flags to false
         $scope.orgHttpErr = false;
         $scope.orgNoData = false;
+
         $scope.perilHttpErr = false;
         $scope.perilNoData = false;
+
         $scope.assetHttpErr = false;
         $scope.assetNoData = false;
+
+        $scope.showOrgList = false;
+        $scope.showOrgSpinner = true;
+
+        $scope.showPerilsList = true;
+        $scope.showPerilsSpinner = false;
+
+
+        $scope.showAssetsList = false;
+        $scope.showAssetsSpinner = false;
+
         $scope.showSpinner = false;
 
         //toggle spinner
@@ -41,9 +54,13 @@
 
             //if org list is empty throw no data error
             if (response.data.length == 0) {
+                $scope.showOrgList = true;
                 $scope.orgNoData = true;
                 return;
             }
+
+            $scope.showOrgList = true;
+            $scope.showOrgSpinner = false;
 
             //if org list is not empty set error flags to false
             $scope.orgHttpErr = false;
@@ -52,7 +69,7 @@
             $scope.orgs = response.data;
 
         }, function errorCallback(response) {
-
+            $scope.showOrgSpinner = false;
             //http error flags and data to display
             $scope.orgHttpErr = true;
             $scope.orgHttpErrCode = response.status;
@@ -65,17 +82,34 @@
 
         //on change/selection of an org this function will run to grab the org's perils and asset lists.
         $scope.loadOrgDetails = function (orgId) {
+
+            //first start the spinners for the perils and the assets
+            $scope.showPerilsList = false;
+            $scope.showPerilsSpinner = true;
+
+            $scope.showAssetsList = false;
+            $scope.showAssetsSpinner = true;
+
+
             //get the perils for the org selected.
             $http({
                 method: 'GET',
-                url: 'api/' + orgId + '/perils',
+                url: 'api/' + orgId + '/perils'
             }).then(function successCallback(response) {
 
                 if (response.data.length == 0) {
                     $scope.perilNoData = true;
                     $scope.perilHttpErr = false;
+
+                    //show empty list with no spinner
+                    $scope.showPerilsList = true;
+                    $scope.showPerilsSpinner = false;
+
                     return;
                 }
+
+                $scope.showPerilsList = true;
+                $scope.showPerilsSpinner = false;
 
                 $scope.perilHttpErr = false;
                 $scope.perilNoData = false;
@@ -83,6 +117,9 @@
                 $scope.perils = response.data;
 
             }, function errorCallback(response) {
+
+                $scope.showPerilsList = true;
+                $scope.showPerilsSpinner = false;
 
                 $scope.perilHttpErr = true;
                 $scope.httpErrorCode = response.status;
@@ -94,14 +131,18 @@
             //get ASSETS for org selected.
             $http({
                 method: 'GET',
-                url: 'api/' + orgId + '/assets',
+                url: 'api/' + orgId + '/assets'
             }).then(function successCallback(response) {
 
                 if (response.data.length == 0) {
+                    $scope.showAssetsList = true;
+                    $scope.showAssetsSpinner = false;
                     $scope.assetNoData = true;
                     return;
                 }
 
+                $scope.showAssetsList = true;
+                $scope.showAssetsSpinner = false;
                 $scope.assetHttpErr = false;
                 $scope.assetNoData = false;
                 $log.log(response.data);
@@ -109,6 +150,8 @@
 
             }, function errorCallback(response) {
 
+                $scope.showAssetsList = true;
+                $scope.showAssetsSpinner = false;
                 $scope.assetHttpErr = true;
                 $scope.assetHttpErrCode = response.status;
                 $scope.assetHttpStatusCode = response.statusText;
@@ -146,7 +189,7 @@
                         var asset = {
                             refId: assets[i].id,
                             wsiId: assets[i].wsiId
-                        }
+                        };
                         assetsIdArray.push(asset);
                     }
                 }
@@ -154,7 +197,6 @@
                 return assetsIdArray;
             }
         };
-
 
         //accept all details.
         $scope.sendAlert = function (selectedOrg, selectedPeril, selectedTime, assets, assetSelect) {
@@ -173,11 +215,10 @@
                 "timestamp": selectedTime.toJSON(),
                 "impacts": assetsIdArray
 
-            }
+            };
             $log.log(requestBody);
         }
     };
-
 
     wireFrameController.$inject = ['$scope', '$log', '$http', '$filter'];
 

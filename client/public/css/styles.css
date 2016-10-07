@@ -103,4 +103,15 @@ hr {
   shape-rendering: crispEdges;
   border-radius: 5px; }
 
+#org-spinner {
+  margin-top: 5px;
+  margin-left: 25px; }
+
+#perils-spinner {
+  margin-left: 20px;
+  margin-bottom: 5px; }
+
+#assets-spinner {
+  margin-left: 25px; }
+
 /*# sourceMappingURL=styles.css.map */

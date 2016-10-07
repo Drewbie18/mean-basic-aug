@@ -128,29 +128,39 @@ hr {
   margin-right: 5px;
 }
 
-#time-label{
+#time-label {
   float: left;
   margin-right: 5px;
 }
 
-#asset-selector{
+#asset-selector {
   min-width: 50%;
 }
 
-
-#bar-chart{
+#bar-chart {
   background-color: #d6d4d8;
   border: solid thin;
   margin-left: 10px;
 }
 
 //style the first bar graph
-.bar-first{
-
+.bar-first {
   fill: red;
   shape-rendering: crispEdges;
   border-radius: 5px;
 
+}
 
+#org-spinner {
+  margin-top: 5px;
+  margin-left: 25px;
+}
 
+#perils-spinner{
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+
+#assets-spinner{
+  margin-left: 25px;
 }

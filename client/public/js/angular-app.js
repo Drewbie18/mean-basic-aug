@@ -9,7 +9,10 @@
  */
 
 
-var angularApp = angular.module('angular-app', ['ngRoute', 'ngAnimate', 'mgcrea.ngStrap', 'mgcrea.ngStrap.tooltip', 'mgcrea.ngStrap.helpers.dateParser','angularSpinner']);
+var angularApp = angular.module('angular-app', ['ngRoute', 'ngAnimate', 'mgcrea.ngStrap', 'mgcrea.ngStrap.tooltip', 'mgcrea.ngStrap.helpers.dateParser', 'angularSpinner']);
+
+
+//add logging logic (turn off and on)
 
 angularApp.config(function ($routeProvider) {
 

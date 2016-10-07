@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="container">
-    <div class="col-lg-5">
+    <div class="col-lg-6">
         <div class="panel panel-primary">
             <div class="panel-body">
                 <div class="col-lg-12">
@@ -15,8 +15,11 @@
                         <select name="org-selector" id="org-selector"
                                 ng-options="org.textId as org.author for org in orgs"
                                 ng-model="orgSelect"
-                                ng-change="loadOrgDetails(orgSelect)">
+                                ng-change="loadOrgDetails(orgSelect)"
+                                ng-show="showOrgList">
                         </select>
+                        <span id="org-spinner" ng-show="showOrgSpinner"
+                              us-spinner="{radius:5, width:2, length: 2}"></span>
                     </div>
                     <div class="row warning-animation" ng-show="orgNoData">
                         <div class="alert alert-danger warning-animation" role="alert" id="org-no-data">
@@ -33,9 +36,12 @@
                         <label for="peril-selector">Peril: </label>
                         <select name="peril-selector" id="peril-selector"
                                 ng-options="peril.id as perilName(peril) for peril in perils"
-                                ng-model="perilSelect">
+                                ng-model="perilSelect"
+                                ng-show="showPerilsList">
                         </select>
-                        <h3>{{perilSelect}}</h3>
+
+                        <span id="perils-spinner" ng-show="showPerilsSpinner"
+                              us-spinner="{radius:5, width:2, length: 2}"></span>
                     </div>
                     <div class="row warning-animation" ng-show="perilNoData">
                         <div class="alert alert-danger warning-animation" role="alert" id="peril-no-data">
@@ -69,8 +75,11 @@
                                 id="asset-selector"
                                 ng-attr-size="{{assetSelectorHeight}}"
                                 ng-options="asset.id as asset.id for asset in assets"
-                                ng-model="assetSelect">
+                                ng-model="assetSelect"
+                                ng-show="showAssetsList">
                         </select>
+                         <span id="assets-spinner" ng-show="showAssetsSpinner"
+                               us-spinner="{radius:5, width:2, length: 2}"></span>
 
                         <div class="row warning-animation" ng-show="assetNoData">
                             <div class="alert alert-danger warning-animation" role="alert" id="asset-no-data">
@@ -97,10 +106,6 @@
     </div>
 </div>
 
-<div class="container">
-    <span ng-show="showSpinner" us-spinner="{radius:5, width:2, length: 2}"></span>
-</div>
-<button class="btn btn-danger" ng-click="toggleSpinner()">SPINNER ON/OFF</button>
 
 </body>
 </html>

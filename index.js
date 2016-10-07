@@ -50,7 +50,10 @@ var generateRandom = require('./server/test-data/randomNumber');
 app.get('/api/comments/all', function (req, res) {
 
     console.log(generateRandom(0, 10));
-    res.json(orgs);
+
+    setTimeout(function () {
+        res.json(orgs);
+    }, 2000);
 
 
 });
@@ -82,10 +85,13 @@ app.get('/api/:orgId/assets', function (req, res) {
 
     var assetResponse = assets(req.params.orgId);
     console.log(assetResponse);
-    res.json(assetResponse);
+
+    //send response delayed to for spinner testing
+    setTimeout(function () {
+        res.json(assetResponse);
+    }, 2000);
 
 });
-
 
 //get perils function
 var perils = require('./server/test-data/spoofPerils');
@@ -93,16 +99,13 @@ app.get('/api/:orgId/perils', function (req, res) {
 
     //create list of perils with orgId
     var perilsResponse = perils(req.params.orgId);
-
-    console.log(perilsResponse);
-
-    //send response.
-    res.json(perilsResponse);
+    //send response delayed to for spinner testing
+    setTimeout(function () {
+        res.json(perilsResponse);
+    }, 2000);
 
 });
 
-
-//get perils function
 var monthData = require('./server/test-data/randomGraph');
 app.get('/api/month-data', function (req, res) {
 
@@ -110,7 +113,6 @@ app.get('/api/month-data', function (req, res) {
     res.json(monthData);
 
 });
-
 
 socketIo.on('connection', function (socket) {
     console.log('A user has connected');
