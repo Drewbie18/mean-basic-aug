@@ -13,6 +13,16 @@
         //set default asset list height
         $scope.assetSelectorHeight = 10;
 
+       var setAssetSelectorSize = function (assetArray) {
+
+            $log.log('This is the selector size: ' + assetArray.length);
+            if (assetArray.length >= 25) {
+                return 20;
+            }
+            return assetArray.length;
+        };
+
+
         //set default time to current time.
 
         $scope.selectedTime = new Date();
@@ -147,6 +157,8 @@
                 $scope.assetNoData = false;
                 $log.log(response.data);
                 $scope.assets = response.data;
+
+                $scope.assetSelectorHeight = setAssetSelectorSize(response.data);
 
             }, function errorCallback(response) {
 
